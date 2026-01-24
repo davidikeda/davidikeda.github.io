@@ -1,0 +1,38 @@
+import Image from 'next/image';
+
+export default function HeroWithImage() {
+  return (
+    <section className="py-16 px-6 bg-white">
+      <div className="max-w-4xl mx-auto">
+        {/* Image and Bio Section */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+          {/* Image */}
+          <div className="flex justify-center">
+            <div className="relative w-80 h-80 rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/placeholderHero.jpg"
+                alt="Profile image"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Bio */}
+          <div>
+            <h2 className="text-4xl font-bold text-zinc-900 mb-6">
+              David Kano Ikeda
+            </h2>
+            <p className="text-lg text-zinc-600 leading-relaxed mb-4">
+              Hi! This is my portfolio website for all my projects. I really enjoy building and designing projects with STEM (Mostly the T.E.M parts). I turned 15 around 2 months ago, and I am a freshman in highschool.
+            </p>
+            <p className="text-lg text-zinc-600 leading-relaxed">
+              placeholder :P
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

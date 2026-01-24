@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: "",
+  onDemandEntries: {
+    maxInactiveAge: 60 * 1000,
+  },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    }
+  }
 };
 
 export default nextConfig;
