@@ -1,6 +1,5 @@
 import ProjectPage from '@/components/project-page';
 import ModelViewer from "@/components/model-viewer";
-import Link from "next/link";
 
 export default function SummativeQ2() {
   return (
