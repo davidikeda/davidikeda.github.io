@@ -1,6 +1,3 @@
-// Utility for managing 3D models per project
-// Store models in: /public/models/{projectSlug}/{modelName}.obj
-
 export interface ProjectModel {
   id: string;
   name: string;

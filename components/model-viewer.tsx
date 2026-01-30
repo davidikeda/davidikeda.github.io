@@ -7,6 +7,7 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 
 interface ModelViewerProps {
   modelPath: string;
+  scale?: number;
   interactive?: boolean;
   autoRotate?: boolean;
   width?: string;
@@ -29,6 +30,7 @@ function isWebGLAvailable(): boolean {
 
 export default function ModelViewer({
   modelPath,
+  scale = 1,
   interactive = true,
   autoRotate = true,
   width = '100%',
@@ -152,8 +154,8 @@ export default function ModelViewer({
             object.position.sub(center);
 
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 3 / maxDim;
-            object.scale.multiplyScalar(scale);
+            const normalizeScale = 3 / maxDim
+            object.scale.multiplyScalar(normalizeScale * scale);
 
             scene.add(object);
             setIsLoading(false);

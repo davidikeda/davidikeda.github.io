@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import HeroWithImage from '@/components/hero-with-image';
+import Hero from '@/components/hero';
 
 export default function Home() {
   return (
@@ -9,18 +9,16 @@ export default function Home() {
       <Header />
 
       <main className="grow">
-        <HeroWithImage />
+        <Hero />
 
-        {/* Projects Section */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-zinc-900 mb-12 text-center">
               Projects
             </h2>
 
-            {/* Navigation Cards */}
+            {/* Cards */}
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Programming Projects Card */}
               <Link href="/programming" className="group">
                 <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-blue-400 bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-indigo-500/0 group-hover:from-blue-500/5 group-hover:to-indigo-500/10 transition-all duration-300"></div>
@@ -39,7 +37,6 @@ export default function Home() {
                 </div>
               </Link>
 
-              {/* Engineering Projects Card */}
               <Link href="/engineering" className="group">
                 <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-orange-400 bg-gradient-to-br from-orange-50 to-red-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-red-500/0 group-hover:from-orange-500/5 group-hover:to-red-500/10 transition-all duration-300"></div>

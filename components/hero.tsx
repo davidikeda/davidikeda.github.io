@@ -1,12 +1,10 @@
 import Image from 'next/image';
 
-export default function HeroWithImage() {
+export default function Hero() {
   return (
     <section className="py-16 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
-        {/* Image and Bio Section */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-          {/* Image */}
           <div className="flex justify-center">
             <div className="relative w-80 h-80 rounded-lg overflow-hidden shadow-lg">
               <Image
@@ -18,8 +16,6 @@ export default function HeroWithImage() {
               />
             </div>
           </div>
-
-          {/* Bio */}
           <div>
             <h2 className="text-4xl font-bold text-zinc-900 mb-6">
               David Kano Ikeda
