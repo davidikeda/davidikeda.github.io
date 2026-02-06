@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="730c9f69-104c-4bcb-aa73-efaa80a2afb4" name="Changes" comment="stupid thingy">
-      <change afterPath="$PROJECT_DIR$/app/both/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/programming/ferrum/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/programming/get/page.tsx" afterDir="false" />
+    <list default="true" id="730c9f69-104c-4bcb-aa73-efaa80a2afb4" name="Changes" comment="Finished Two Pages (GET ferrum), added schematic for TI-0 in new Combined Page.">
+      <change afterPath="$PROJECT_DIR$/app/combined/ti-0/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/programming/quokka/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engineering/summative-q1/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/engineering/summative-q1/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engineering/summative-q2/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/engineering/summative-q2/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/definitions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/definitions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/combined/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/combined/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/lib/projects-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/projects-data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +133,7 @@
       <workItem from="1769301823417" duration="2413000" />
       <workItem from="1769977534877" duration="2087000" />
       <workItem from="1770061192171" duration="3329000" />
-      <workItem from="1770384221349" duration="3147000" />
+      <workItem from="1770384221349" duration="6668000" />
     </task>
     <task id="LOCAL-00001" summary="Huge commit lol, I need to sleep">
       <option name="closed" value="true" />
@@ -165,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769293640452</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finished Two Pages (GET ferrum), added schematic for TI-0 in new Combined Page.">
+      <option name="closed" value="true" />
+      <created>1770391376837</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770391376837</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +177,8 @@
     <MESSAGE value="Huge commit lol, I need to sleep" />
     <MESSAGE value="Add github workflow pls work" />
     <MESSAGE value="stupid thingy" />
-    <option name="LAST_COMMIT_MESSAGE" value="stupid thingy" />
+    <MESSAGE value="Finished Two Pages (GET ferrum), added schematic for TI-0 in new Combined Page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Two Pages (GET ferrum), added schematic for TI-0 in new Combined Page." />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

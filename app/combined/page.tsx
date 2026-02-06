@@ -4,16 +4,16 @@ import ProjectCard from '@/components/project-card';
 import Footer from '@/components/footer';
 import { combinedProjects } from '@/app/lib/projects-data';
 
-export default function EngineeringPage() {
+export default function CombinedPage() {
     return (
         <div className="min-h-screen flex flex-col bg-white">
             <Header showBackButton={true} backHref="/" />
 
             <main className="grow">
                 <DirectoryHero
-                    title="Engineering Projects"
-                    description="Onshape files, CAD models, and other engineering projects I've worked on. Eventually my engineering capstone will go here."
-                    icon="⚙"
+                    title="Combined Projects"
+                    description="Projects that involve both programming and engineering, these sorts of projetcs often involve computers integrating with hardware."
+                    icon="<> + ⚙"
                 />
 
                 <section className="max-w-4xl mx-auto px-6 py-16">

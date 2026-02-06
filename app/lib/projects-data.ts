@@ -20,6 +20,9 @@ export const projects: Project[] = [
     },
     // programming
     {
+        type: "programming", title: "quokka", description: "A Machine to Machine language (M2M) that allows the communication and allocation of resources over usb cables", link: "/programming/quokka", date: "01-30-2026", status: "in-progress"
+    },
+    {
         type: "programming", title: "get", description: "A simple Bukkit plugin that uploads the held item's data to hastebin", link: "/programming/get", date: "12-04-2024", status: "in-progress"
     },
     {
@@ -27,7 +30,7 @@ export const projects: Project[] = [
     },
     // combined
     {
-        type: "combined", title: "TI-0", description: "A Hardware-Software project that involves siphoning power and resources from a raspberry Pi zero to power a Ti-84 CE through a USB-Mini Cable.", link: "/combined/ti-0", date: "09-29-25", status: "planned"
+        type: "combined", title: "ti-0", description: "A Hardware-Software project that involves siphoning power and resources from a raspberry Pi zero to power a Ti-84 CE through a USB-Mini Cable.", link: "/combined/ti-0", date: "09-29-25", status: "planned"
     }
 ];
 
