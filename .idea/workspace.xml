@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e41363b-cc6b-41df-816f-f04484969ce9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/engineering/summative-q1/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/image-gallery.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/two-image-row.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/summative-q1/brainstorm3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/models/summative-q1/puzzleCube.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/models/summative-q1/puzzleCube.obj" afterDir="false" />
+    <list default="true" id="730c9f69-104c-4bcb-aa73-efaa80a2afb4" name="Changes" comment="stupid thingy">
+      <change afterPath="$PROJECT_DIR$/app/both/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/programming/ferrum/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/programming/get/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/engineering/summative-q1/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/engineering/summative-q1/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/engineering/summative-q2/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/engineering/summative-q2/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/lib/model-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/model-utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/definitions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/definitions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/lib/projects-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/projects-data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hero-with-image.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/model-viewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/model-viewer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/1020986/ocebots/davidikeda.github.io" value="38iGJenG38TtBLrV1iVXPrf63yY" />
+    </persistenceIdMap>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
+        <option value="HTML File" />
         <option value="TypeScript JSX File" />
       </list>
     </option>
@@ -36,19 +42,25 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;davidikeda&quot;
+    &quot;assignee&quot;: &quot;literal-gargoyle&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="cc27485b-db7c-4fdd-b3da-50287859d441" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/davidikeda/davidikeda.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;c3c74edd-311c-483f-b5cc-cbfd12a10983&quot;
+    &quot;url&quot;: &quot;https://github.com/davidikeda/davidikeda.github.io&quot;,
+    &quot;accountId&quot;: &quot;cc27485b-db7c-4fdd-b3da-50287859d441&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="38xIJHYoRFMRryB0gVGZm43dVEV" />
+  <component name="ProjectId" id="38iGJenG38TtBLrV1iVXPrf63yY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -56,35 +68,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "javascript.preferred.runtime.type.id": "node",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "/home/bigcorg/WebstormProjects/davidikeda.github.io",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/bigcorg/.config/JetBrains/WebStorm2025.3/node/versions/24.13.0/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "copyright.filetypes.JavaScript",
-    "ts.external.directory.path": "/home/bigcorg/WebstormProjects/davidikeda.github.io/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/1020986/ocebots/davidikeda.github.io/public/models/summative-q2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/1020986/ocebots/davidikeda.github.io/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images/summative-q1" />
-      <recent name="$PROJECT_DIR$/public/models/summative-q1" />
-      <recent name="$PROJECT_DIR$/app/engineering/summative-q1" />
+      <recent name="$PROJECT_DIR$/public/models/summative-q2" />
+      <recent name="$PROJECT_DIR$/app/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public/models" />
+      <recent name="$PROJECT_DIR$/public/models/summative-q2" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -111,17 +126,63 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0e41363b-cc6b-41df-816f-f04484969ce9" name="Changes" comment="" />
-      <created>1769734721747</created>
+      <changelist id="730c9f69-104c-4bcb-aa73-efaa80a2afb4" name="Changes" comment="" />
+      <created>1769274907888</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1769734721747</updated>
-      <workItem from="1769734723095" duration="8490000" />
-      <workItem from="1769799074877" duration="3458000" />
+      <updated>1769274907888</updated>
+      <workItem from="1769275178188" duration="1104000" />
+      <workItem from="1769276298523" duration="4844000" />
+      <workItem from="1769288744986" duration="3780000" />
+      <workItem from="1769293116840" duration="355000" />
+      <workItem from="1769293484123" duration="178000" />
+      <workItem from="1769301823417" duration="2413000" />
+      <workItem from="1769977534877" duration="2087000" />
+      <workItem from="1770061192171" duration="3329000" />
+      <workItem from="1770384221349" duration="3147000" />
     </task>
+    <task id="LOCAL-00001" summary="Huge commit lol, I need to sleep">
+      <option name="closed" value="true" />
+      <created>1769292897724</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769292897724</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add github workflow pls work">
+      <option name="closed" value="true" />
+      <created>1769293232739</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769293232739</updated>
+    </task>
+    <task id="LOCAL-00003" summary="stupid thingy">
+      <option name="closed" value="true" />
+      <created>1769293640452</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1769293640452</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Huge commit lol, I need to sleep" />
+    <MESSAGE value="Add github workflow pls work" />
+    <MESSAGE value="stupid thingy" />
+    <option name="LAST_COMMIT_MESSAGE" value="stupid thingy" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

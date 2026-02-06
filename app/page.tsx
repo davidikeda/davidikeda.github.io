@@ -46,9 +46,26 @@ export default function Home() {
                       Engineering Projects
                     </h3>
                     <p className="text-zinc-600 mb-6">
-                      Onshape files, CAD models, and other engineering projects I've worked on. Eventually my engineering capstone will go here.
+                      Onshape files, CAD models, and other engineering projects I&#39;ve worked on. Eventually my engineering capstone will go here.
                     </p>
                     <div className="inline-flex items-center gap-2 text-orange-600 font-medium group-hover:gap-3 transition-all">
+                      Explore <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              <Link href="/combined" className="group">
+                <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-green-400 bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/5 group-hover:to-emerald-500/10 transition-all duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="text-5xl font-bold text-green-600 mb-4">&lt;&gt; + ⚙</div>
+                    <h3 className="text-2xl font-bold text-zinc-900 mb-3 group-hover:text-green-600 transition-colors">
+                      Combined Projects
+                    </h3>
+                    <p className="text-zinc-600 mb-6">
+                      Projects that combine both programming and engineering aspects.
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-green-600 font-medium group-hover:gap-3 transition-all">
                       Explore <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                   </div>

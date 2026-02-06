@@ -97,7 +97,7 @@ export default function SummativeQ2() {
 
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-zinc-900 mb-4">Onshape Link:</h2>
-        <a href = "https://cad.onshape.com/documents/af9d5224099d9470c9250f42/w/8e2f8a8f60d3553b308eb29d/e/58d998feb5a96c6547a87269?renderMode=0&uiState=6975a9c341a7f37a694d33d1">Here!</a>
+        <a href = "https://cad.onshape.com/documents/f5c20d018b9fd8e50c6fc438/w/522110f581e524fe4557dc4f/e/145333785a1bf54ee43f62ab?renderMode=0&uiState=697fb79b75b786b735a36c39" target="_blank" id="link">Here!</a>
       </section>
     </ProjectPage>
   );
