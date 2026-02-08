@@ -21,10 +21,10 @@ export default function Hero() {
               David Kano Ikeda
             </h2>
             <p className="text-lg text-zinc-600 leading-relaxed mb-4">
-              Hi! This is my portfolio website for all my projects. I really enjoy building and designing projects with STEM (Mostly the T.E.M parts). I turned 15 around 2 months ago, and I am a freshman in highschool.
+              Hi! This is my portfolio website for all my projects. I really enjoy building and designing projects with STEM (Mostly the T.E.M parts).
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed">
-              placeholder :P
+              placeholder image :P
             </p>
           </div>
         </div>

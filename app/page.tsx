@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Hero from '@/components/hero';
+import Contact from '@/components/contact';
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
               Projects
             </h2>
 
-            {/* Cards */}
+            {/* cardz */}
             <div className="grid md:grid-cols-2 gap-6">
               <Link href="/programming" className="group">
                 <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-blue-400 bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -71,9 +72,27 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+              <Link href="/experience" className="group">
+                <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-purple-400 bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/10 transition-all duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="text-5xl font-bold text-purple-600 mb-4">⇢</div>
+                    <h3 className="text-2xl font-bold text-zinc-900 mb-3 group-hover:text-purple-600 transition-colors">
+                      Experience
+                    </h3>
+                    <p className="text-zinc-600 mb-6">
+                      A collection of camps I did, and even some internships (in the future).
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-purple-600 font-medium group-hover:gap-3 transition-all">
+                      Explore <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
+        <Contact />
       </main>
 
       <Footer />

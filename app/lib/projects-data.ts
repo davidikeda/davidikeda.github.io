@@ -1,4 +1,5 @@
 import { Project } from './definitions';
+import { Experience } from './definitions';
 
 export const projects: Project[] = [
     // engineering
@@ -34,6 +35,17 @@ export const projects: Project[] = [
     }
 ];
 
+export const experience: Experience[] = [
+    {
+        title: "UNC-Chapel Hill", type: "camp", description: "BattleBots Camp with VEX that I leaded and won", link: "/experience/unc-chapel-hill", date: "07-04-2024", status: "completed"
+    },
+    {
+        title: "Oxford Summer Courses", type: "camp", description: "Summer Camp where I studied python and a sprinkle of html", link: "/experience/oxford-summer-courses", date: "07-31-2023", status: "completed"
+    },
+
+]
+
 export const programmingProjects = projects.filter(p => p.type === "programming");
 export const engineeringProjects = projects.filter(p => p.type === "engineering");
 export const combinedProjects = projects.filter(p => p.type === "combined");
+export const experienceTabs = experience;
