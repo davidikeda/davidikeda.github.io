@@ -7,15 +7,6 @@ export const metadata: Metadata = {
     title: "David Kano Ikeda",
     description: "portfolio website for all my projects",
 };
-
-// Temp logging
-const publicPath = join(process.cwd(), "public");
-try{
-    const files = readdirSync(publicPath);
-    console.log("Files in public directory:", files);
-} catch(err){
-    console.log(err);
-}
 export default function RootLayout({
   children,
 }: {
