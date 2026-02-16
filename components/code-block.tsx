@@ -1,59 +1,91 @@
 'use client'
 
-import {useState} from "react";
+import { useEffect, useState } from 'react'
 import Prism from 'prismjs'
-import 'prismjs/components/prism-tsx';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-c';
-import 'prismjs/components/prism-cpp';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-go';
-import 'prismjs/components/prism-rust';
-import 'prismjs/components/prism-csharp';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-kotlin';
 
 type Props = {
-    code: string
-    language?: string
-    filename?: string
+  code: string
+  language?: string
+  filename?: string
 }
 
 export default function CodeBlock({
-    code,
-    language = "typescript",
-    filename,
+  code,
+  language = 'typescript',
+  filename,
 }: Props) {
-    const [copied, setCopied] = useState(false)
+  const [html, setHtml] = useState<string>('')
 
-    const html = Prism.highlight(code, Prism.languages[language], language)
-    const copy = async () => {
-        await navigator.clipboard.writeText(code)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+  useEffect(() => {
+    let mounted = true
+
+    async function load() {
+      await import('prismjs/components/prism-markup')
+      await import('prismjs/components/prism-clike')
+      await import('prismjs/components/prism-javascript')
+      await import('prismjs/components/prism-jsx')
+      await import('prismjs/components/prism-typescript')
+      await import('prismjs/components/prism-tsx')
+
+      await import('prismjs/components/prism-c')
+      await import('prismjs/components/prism-cpp')
+      await import('prismjs/components/prism-python')
+      await import('prismjs/components/prism-bash')
+      await import('prismjs/components/prism-json')
+
+      const grammar =
+        Prism.languages[language] || Prism.languages.clike || Prism.languages.plain
+
+      const highlighted = Prism.highlight(code, grammar, language)
+        .split('\n')
+        .map((line) => `<span>${line || ' '}</span>`)
+        .join('')
+
+      if (mounted) setHtml(highlighted)
     }
 
-    return (
-        <div className="group relative bg-zinc-100 rounded-lg overflow-hidden">
-            {filename && (
-                <div className="absolute top-0 left-0 right-0 bg-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700">
-                    {filename}
-                </div>
-            )}
-            <pre className={`overflow-x-auto ${filename ? 'pt-10' : 'p-4'}`}>
-                <code
-                    className={`language-${language} block whitespace-pre`}
-                    dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </pre>
-            <button
-                onClick={copy}
-                className="absolute top-2 right-2 bg-zinc-200 hover:bg-zinc-300 text-sm font-medium text-zinc-700 px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-                {copied ? "Copied!" : "Copy"}
-            </button>
+    load()
+
+    return () => {
+      mounted = false
+    }
+  }, [code, language])
+
+  const [copied, setCopied] = useState(false)
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(code)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1200)
+  }
+
+  return (
+    <div className="group relative rounded-2xl border border-zinc-800 bg-zinc-900 shadow-lg overflow-hidden">
+      {(filename || language) && (
+        <div className="flex items-center justify-between px-4 py-2 text-xs bg-zinc-800 border-b border-zinc-700">
+          <span className="font-mono text-zinc-300">
+            {filename || language}
+          </span>
+
+          <button
+            onClick={copy}
+            className="opacity-0 group-hover:opacity-100 transition text-zinc-400 hover:text-white"
+          >
+            {copied ? 'copied' : 'copy'}
+          </button>
         </div>
-    )
+      )}
+
+      <pre className="overflow-x-auto text-sm leading-relaxed">
+        {html ? (
+          <code
+            className={`language-${language} block px-4 py-4`}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        ) : (
+          <code className="block px-4 py-4 whitespace-pre">{code}</code>
+        )}
+      </pre>
+    </div>
+  )
 }
