@@ -25,6 +25,7 @@ export default function Quokka() {
             <section className="mb-12">
                 <h2 className="text-2xl font-bold text-zinc-900 mb-4">Lexer</h2>
                 <p>The lexer is custom made, in C of course. Originally I thought about going with a program that would generate the lexer (Flex/Bison), but I decided to just code it myself for more control. There is two main parts of the lexer (right now), the main C program, and the lexer_test.c which is what gets turned into an executable.</p>
+                <br></br>
                 <CodeBlock
                     code = {"//\n" +
                     "// Created by David Ikeda on 2/10/2026.\n" +
@@ -43,43 +44,7 @@ export default function Quokka() {
                     "        case TOK_ELSE: return \"ELSE\";\n" +
                     "        case TOK_NUMBER: return \"NUMBER\";\n" +
                     "        case TOK_STRING: return \"STRING\";\n" +
-                    "\n" +
-                    "        case TOK_NEW: return \"NEW\";\n" +
-                    "        case TOK_IF: return \"IF\";\n" +
-                    "        case TOK_SEND: return \"SEND\";\n" +
-                    "        case TOK_USBIN: return \"USBIN\";\n" +
-                    "        case TOK_USBOUT: return \"USBOUT\";\n" +
-                    "        case TOK_AS: return \"AS\";\n" +
-                    "        case TOK_STATUS: return \"STATUS\";\n" +
-                    "        case TOK_CONNECT: return \"CONNECT\";\n" +
-                    "        case TOK_THEN: return \"THEN\";\n" +
-                    "        case TOK_WRITE: return \"WRITE\";\n" +
-                    "        case TOK_LOG: return \"LOG\";\n" +
-                    "\n" +
-                    "        case TOK_ASSIGN: return \"ASSIGN\";\n" +
-                    "        case TOK_EQUAL: return \"EQUAL\";\n" +
-                    "        case TOK_NOT_EQUAL: return \"NOT_EQUAL\";\n" +
-                    "        case TOK_LT: return \"LT\";\n" +
-                    "        case TOK_GT: return \"GT\";\n" +
-                    "        case TOK_LE: return \"LE\";\n" +
-                    "        case TOK_GE: return \"GE\";\n" +
-                    "        case TOK_PLUS: return \"PLUS\";\n" +
-                    "        case TOK_MINUS: return \"MINUS\";\n" +
-                    "        case TOK_STAR: return \"STAR\";\n" +
-                    "        case TOK_SLASH: return \"SLASH\";\n" +
-                    "        case TOK_PERCENT: return \"PERCENT\";\n" +
-                    "\n" +
-                    "        case TOK_LPAREN: return \"LPAREN\";\n" +
-                    "        case TOK_RPAREN: return \"RPAREN\";\n" +
-                    "        case TOK_LBRACE: return \"LBRACE\";\n" +
-                    "        case TOK_RBRACE: return \"RBRACE\";\n" +
-                    "        case TOK_LBRACKET: return \"LBRACKET\";\n" +
-                    "        case TOK_RBRACKET: return \"RBRACKET\";\n" +
-                    "        case TOK_COMMA: return \"COMMA\";\n" +
-                    "        case TOK_DOT: return \"DOT\";\n" +
-                    "        case TOK_COLON: return \"COLON\";\n" +
-                    "        case TOK_SEMICOLON: return \"SEMICOLON\";\n" +
-                    "\n" +
+                    "        //etc.... \n" +
                     "        default: return \"UNKNOWN\";\n" +
                     "    }\n" +
                     "}\n" +
@@ -115,10 +80,27 @@ export default function Quokka() {
                     "    lexerFree(lx);\n" +
                     "    fclose(f);\n" +
                     "    return 0;\n" +
-                    "}\n"}
+                    "}"}
                     language="c"
                     filename="lexer_test.c">
                 </CodeBlock>
+                <br></br>
+                <p><code>test.qk</code> is the file I use for lexer testing, this is (hopefully) what the syntax ends up being. I aimed for a mix of C, CPP, Python, and a little bit of Java</p>
+                <br></br>
+                <CodeBlock
+                code = {"new device USB1 as Keyboard;\n" +
+                    "USB1.connect();\n" +
+                    "\n" +
+                    "if (USB1.status() == \"connected\") then {\n" +
+                    "    USB1.write(header=\"KEY-UP\", payload=\"A\");\n" +
+                    "    USB1.write(header=\"KEY-DOWN\", payload=\"A\");\n" +
+                    "} else {\n" +
+                    "    log(\"Keyboard not detected, aborting.\");\n" +
+                    "};\n"}
+                language="clike"
+                filename="test.qk">
+                </CodeBlock>
+
             </section>
 
 
