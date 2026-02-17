@@ -76,7 +76,7 @@ export default function CodeBlock({
         </div>
       )}
 
-      <pre className="overflow-x-auto text-sm leading-relaxed">
+      <pre className="overflow-auto text-sm leading-relaxed max-h-96">
         {html ? (
           <code
             className={`language-${language} block px-4 py-4`}

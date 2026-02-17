@@ -15,7 +15,6 @@ interface ModelViewerProps {
   fallbackMessage?: string;
 }
 
-// Check if WebGL is available
 function isWebGLAvailable(): boolean {
   try {
     const canvas = document.createElement('canvas');
@@ -53,7 +52,6 @@ export default function ModelViewer({
   const targetRotationY = useRef(0);
 
   useEffect(() => {
-    // Check WebGL availability on mount
     const hasWebGL = isWebGLAvailable();
     setWebglAvailable(hasWebGL);
 
@@ -66,12 +64,10 @@ export default function ModelViewer({
     if (!containerRef.current) return;
 
     try {
-      // Scene setup
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0xffffff);
       sceneRef.current = scene;
 
-      // Camera setup
       const camera = new THREE.PerspectiveCamera(
         75,
         containerRef.current.clientWidth / containerRef.current.clientHeight,
@@ -81,7 +77,6 @@ export default function ModelViewer({
       camera.position.z = 5;
       cameraRef.current = camera;
 
-      // Renderer setup
       let renderer: THREE.WebGLRenderer;
       try {
         renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -99,7 +94,6 @@ export default function ModelViewer({
       containerRef.current.appendChild(renderer.domElement);
       rendererRef.current = renderer;
 
-      // Lighting
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambientLight);
 
@@ -111,20 +105,16 @@ export default function ModelViewer({
       directionalLight2.position.set(-5, -5, -5);
       scene.add(directionalLight2);
 
-      // Load model with optional MTL support
       const loadModel = () => {
-        // Extract base path and filename from modelPath
         const pathParts = modelPath.lastIndexOf('/');
         const basePath = modelPath.substring(0, pathParts + 1);
         const filename = modelPath.substring(pathParts + 1).replace('.obj', '');
         const mtlPath = basePath + filename + '.mtl';
 
-        // Try to load MTL first if it exists
         const mtlLoader = new MTLLoader();
         mtlLoader.load(
           mtlPath,
           (materials) => {
-            // MTL loaded successfully, prepare OBJ loader with materials
             materials.preload();
             const objLoader = new OBJLoader();
             objLoader.setMaterials(materials);
@@ -132,7 +122,6 @@ export default function ModelViewer({
           },
           undefined,
           () => {
-            // MTL failed to load, load OBJ without materials
             console.log('MTL file not found, loading OBJ without materials');
             const objLoader = new OBJLoader();
             loadOBJ(objLoader);
@@ -146,7 +135,6 @@ export default function ModelViewer({
           (object) => {
             modelRef.current = object;
 
-            // Center and scale the model
             const box = new THREE.Box3().setFromObject(object);
             const center = box.getCenter(new THREE.Vector3());
             const size = box.getSize(new THREE.Vector3());
@@ -173,7 +161,7 @@ export default function ModelViewer({
 
       loadModel();
 
-      // Mouse events for interactive control
+
       const onMouseDown = (e: MouseEvent) => {
         if (!interactive) return;
         mouseDown.current = true;
@@ -202,7 +190,6 @@ export default function ModelViewer({
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
 
-      // Touch events for mobile
       let touchStartX = 0;
       let touchStartY = 0;
 
@@ -234,7 +221,6 @@ export default function ModelViewer({
       renderer.domElement.addEventListener('touchmove', onTouchMove);
       renderer.domElement.addEventListener('touchend', onTouchEnd);
 
-      // Handle window resize
       const handleResize = () => {
         if (!containerRef.current) return;
         const width = containerRef.current.clientWidth;
@@ -246,21 +232,17 @@ export default function ModelViewer({
 
       window.addEventListener('resize', handleResize);
 
-      // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
 
         if (modelRef.current) {
           if (interactive && mouseDown.current) {
-            // Direct control while dragging
             modelRef.current.rotation.x = targetRotationX.current;
             modelRef.current.rotation.y = targetRotationY.current;
           } else if (autoRotate && !mouseDown.current) {
-            // Auto-rotate when not dragging
             modelRef.current.rotation.x += 0.005;
             modelRef.current.rotation.y += 0.01;
           } else {
-            // Smooth easing when released
             modelRef.current.rotation.x +=
               (targetRotationX.current - modelRef.current.rotation.x) * 0.05;
             modelRef.current.rotation.y +=
@@ -273,7 +255,6 @@ export default function ModelViewer({
 
       animate();
 
-      // Cleanup
       return () => {
         window.removeEventListener('resize', handleResize);
         renderer.domElement.removeEventListener('mousedown', onMouseDown);
