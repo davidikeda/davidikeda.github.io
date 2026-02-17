@@ -12,7 +12,7 @@ export default function Contact() {
                 <p className="text-lg text-zinc-600 leading-relaxed">
                     Email me at{" "}
                     <a
-                        href="mailto:david.ikeda@outlook.com"
+                        href="mailto:ikeda.david.k@gmail.com"
                         className="text-indigo-600 hover:underline"
                     >
                         ikeda.david.k@gmail.com
