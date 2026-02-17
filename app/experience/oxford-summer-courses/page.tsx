@@ -1,6 +1,6 @@
 import ProjectPage from "@/components/project-page";
 
-export default function uncChapelHill() {
+export default function oxfordSummerCourses() {
     return (
         <ProjectPage
             title="Oxford Summer Courses"

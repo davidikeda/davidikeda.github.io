@@ -34,12 +34,42 @@ body {
   border-bottom-color: rgb(24 24 27);
 }
 
-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
-  font-size: 0.95em;
-  background: rgba(27,31,35,0.05);
-  color: #c7254e;
-  padding: 0.15em 0.4em;
-  border-radius: 6px;
-  border: 1px solid rgba(27,31,35,0.08);
+pre[class*="language-"] {
+  background: #18181b; /* zinc-900 */
+  color: #e4e4e7; /* zinc-200 */
+  margin: 0;
+  border-radius: 0 0 1rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
 }
+
+/* Remove default Prism padding (we handle it in TSX) */
+pre[class*="language-"] code {
+  background: transparent;
+  padding: 0;
+}
+
+pre {
+  counter-reset: line;
+}
+
+pre code > span {
+  display: block;
+}
+
+pre code > span::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: #52525b; /* zinc-600 */
+}
+
+.token.comment { color: #71717a; }
+.token.keyword { color: #c084fc; }
+.token.string { color: #86efac; }
+.token.function { color: #7dd3fc; }
+.token.number { color: #fca5a5; }
+.token.operator { color: #e4e4e7; }
