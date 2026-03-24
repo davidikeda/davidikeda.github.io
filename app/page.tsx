@@ -43,7 +43,7 @@ export default function Home() {
                 <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-orange-400 bg-gradient-to-br from-orange-50 to-red-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-red-500/0 group-hover:from-orange-500/5 group-hover:to-red-500/10 transition-all duration-300"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl font-bold text-orange-600 mb-4">⚙</div>
+                    <div className="text-5xl font-bold text-orange-600 mb-4">&#x2699;&#xFE0E;</div>
                     <h3 className="text-2xl font-bold text-zinc-900 mb-3 group-hover:text-orange-600 transition-colors">
                       Engineering Projects
                     </h3>
@@ -60,7 +60,7 @@ export default function Home() {
                 <div className="relative h-full p-8 rounded-xl border-2 border-zinc-200 hover:border-green-400 bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/5 group-hover:to-emerald-500/10 transition-all duration-300"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl font-bold text-green-600 mb-4">&lt;&gt; + ⚙</div>
+                    <div className="text-5xl font-bold text-green-600 mb-4">&lt;&gt; + &#x2699;&#xFE0E;</div>
                     <h3 className="text-2xl font-bold text-zinc-900 mb-3 group-hover:text-green-600 transition-colors">
                       Combined Projects
                     </h3>

@@ -19,6 +19,30 @@ export const projects: Project[] = [
         date: "01-23-2026",
         status: "completed"
     },
+    //{
+    //    type: "engineering",
+    //    title: "Wing design in onshape",
+    //    description: "Wing design project in Onshape, this was a little side quest for a later project",
+    //    link: "/engineering/wing-design-in-onshape",
+    //    date: "03-1-2026",
+    //    status: "completed"
+    //}, Commented out for now
+    {
+        type: "engineering",
+        title: "Engineering Summative, Quarter Three",
+        description: "Engineering 1 Sweet Improvement Project, otherwise known as the Engineering Summative for Quarter Three.",
+        link: "/engineering/summative-q3",
+        date: "03-27-2026",
+        status: "in-progress"
+    },
+    {
+        type: "engineering",
+        title: "Dada Art - Wrench",
+        description: "A Dada art project where I created a wrench in cad, and then 3D printed it.",
+        link: "/engineering/dada",
+        date: "03-24-2026",
+        status: "completed"
+    },
     // programming
     {
         type: "programming", title: "quokka", description: "A Machine to Machine language (M2M) that allows the communication and allocation of resources over usb cables", link: "/programming/quokka", date: "01-30-2026", status: "in-progress"
