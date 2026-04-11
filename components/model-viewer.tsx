@@ -19,8 +19,8 @@ function isWebGLAvailable(): boolean {
   try {
     const canvas = document.createElement('canvas');
     return !!(
-      window.WebGLRenderingContext &&
-      (canvas.getContext('webgl') || canvas.getContext('webgl2'))
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('webgl2'))
     );
   } catch {
     return false;
@@ -28,20 +28,22 @@ function isWebGLAvailable(): boolean {
 }
 
 export default function ModelViewer({
-  modelPath,
-  scale = 1,
-  interactive = true,
-  autoRotate = true,
-  width = '100%',
-  height = '600px',
-  fallbackMessage = 'Your browser environment does not support WebGL 3D rendering. This is often due to browser security restrictions in school networks. You can still view the project details above.',
-}: ModelViewerProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+                                      modelPath,
+                                      scale = 1,
+                                      interactive = true,
+                                      autoRotate = true,
+                                      width = '100%',
+                                      height = '600px',
+                                      fallbackMessage = 'Your browser environment does not support WebGL 3D rendering. This is often due to browser security restrictions in school networks. You can still view the project details above.',
+                                    }: ModelViewerProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
+
   const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0); // 0-100
   const [error, setError] = useState<string | null>(null);
   const [webglAvailable, setWebglAvailable] = useState<boolean | null>(null);
 
@@ -64,15 +66,17 @@ export default function ModelViewer({
     if (!containerRef.current) return;
 
     try {
+      setProgress(5); // initial indicator
+
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0xffffff);
       sceneRef.current = scene;
 
       const camera = new THREE.PerspectiveCamera(
-        75,
-        containerRef.current.clientWidth / containerRef.current.clientHeight,
-        0.1,
-        1000
+          75,
+          containerRef.current.clientWidth / containerRef.current.clientHeight,
+          0.1,
+          1000
       );
       camera.position.z = 5;
       cameraRef.current = camera;
@@ -87,10 +91,11 @@ export default function ModelViewer({
       }
 
       renderer.setSize(
-        containerRef.current.clientWidth,
-        containerRef.current.clientHeight
+          containerRef.current.clientWidth,
+          containerRef.current.clientHeight
       );
       renderer.setPixelRatio(window.devicePixelRatio);
+      // append canvas immediately so we can show progress overlay on top of it
       containerRef.current.appendChild(renderer.domElement);
       rendererRef.current = renderer;
 
@@ -112,55 +117,71 @@ export default function ModelViewer({
         const mtlPath = basePath + filename + '.mtl';
 
         const mtlLoader = new MTLLoader();
+        // MTL load (no reliable progress events here), set a small progress milestone when finished or on error
         mtlLoader.load(
-          mtlPath,
-          (materials) => {
-            materials.preload();
-            const objLoader = new OBJLoader();
-            objLoader.setMaterials(materials);
-            loadOBJ(objLoader);
-          },
-          undefined,
-          () => {
-            console.log('MTL file not found, loading OBJ without materials');
-            const objLoader = new OBJLoader();
-            loadOBJ(objLoader);
-          }
+            mtlPath,
+            (materials) => {
+              materials.preload();
+              setProgress((p) => Math.max(p, 15));
+              const objLoader = new OBJLoader();
+              objLoader.setMaterials(materials);
+              loadOBJ(objLoader);
+            },
+            undefined,
+            () => {
+              // MTL not found or error -> proceed without materials
+              setProgress((p) => Math.max(p, 10));
+              const objLoader = new OBJLoader();
+              loadOBJ(objLoader);
+            }
         );
       };
 
       const loadOBJ = (loader: OBJLoader) => {
         loader.load(
-          modelPath,
-          (object) => {
-            modelRef.current = object;
+            modelPath,
+            (object) => {
+              modelRef.current = object;
 
-            const box = new THREE.Box3().setFromObject(object);
-            const center = box.getCenter(new THREE.Vector3());
-            const size = box.getSize(new THREE.Vector3());
+              const box = new THREE.Box3().setFromObject(object);
+              const center = box.getCenter(new THREE.Vector3());
+              const size = box.getSize(new THREE.Vector3());
 
-            object.position.sub(center);
+              object.position.sub(center);
 
-            const maxDim = Math.max(size.x, size.y, size.z);
-            const normalizeScale = 3 / maxDim
-            object.scale.multiplyScalar(normalizeScale * scale);
+              const maxDim = Math.max(size.x, size.y, size.z);
+              const normalizeScale = 3 / maxDim;
+              object.scale.multiplyScalar(normalizeScale * scale);
 
-            scene.add(object);
-            setIsLoading(false);
-          },
-          (progress) => {
-            console.log(`Loading model: ${(progress.loaded / progress.total * 100).toFixed(2)}%`);
-          },
-          (error) => {
-            console.error('Error loading model:', error);
-            setError('Failed to load 3D model');
-            setIsLoading(false);
-          }
+              scene.add(object);
+              setProgress(100);
+              setTimeout(() => setIsLoading(false), 100); // small delay so progress UI shows 100%
+            },
+            (evt) => {
+              // evt is a ProgressEvent; total might be 0/undefined
+              try {
+                if (evt.lengthComputable && evt.total) {
+                  const pct = Math.round((evt.loaded / evt.total) * 100);
+                  setProgress(pct);
+                } else {
+                  // fallback: bump progress slightly so user sees movement
+                  setProgress((p) => Math.min(95, p + 8));
+                }
+              } catch {
+                setProgress((p) => Math.min(95, p + 8));
+              }
+              // for debugging:
+              // console.log(`Loading model: ${(evt.loaded / (evt.total || 1) * 100).toFixed(2)}%`);
+            },
+            (err) => {
+              console.error('Error loading model:', err);
+              setError('Failed to load 3D model');
+              setIsLoading(false);
+            }
         );
       };
 
       loadModel();
-
 
       const onMouseDown = (e: MouseEvent) => {
         if (!interactive) return;
@@ -223,11 +244,11 @@ export default function ModelViewer({
 
       const handleResize = () => {
         if (!containerRef.current) return;
-        const width = containerRef.current.clientWidth;
-        const height = containerRef.current.clientHeight;
-        camera.aspect = width / height;
+        const w = containerRef.current.clientWidth;
+        const h = containerRef.current.clientHeight;
+        camera.aspect = w / h;
         camera.updateProjectionMatrix();
-        renderer.setSize(width, height);
+        renderer.setSize(w, h);
       };
 
       window.addEventListener('resize', handleResize);
@@ -244,9 +265,9 @@ export default function ModelViewer({
             modelRef.current.rotation.y += 0.01;
           } else {
             modelRef.current.rotation.x +=
-              (targetRotationX.current - modelRef.current.rotation.x) * 0.05;
+                (targetRotationX.current - modelRef.current.rotation.x) * 0.05;
             modelRef.current.rotation.y +=
-              (targetRotationY.current - modelRef.current.rotation.y) * 0.05;
+                (targetRotationY.current - modelRef.current.rotation.y) * 0.05;
           }
         }
 
@@ -263,7 +284,9 @@ export default function ModelViewer({
         renderer.domElement.removeEventListener('touchstart', onTouchStart);
         renderer.domElement.removeEventListener('touchmove', onTouchMove);
         renderer.domElement.removeEventListener('touchend', onTouchEnd);
-        containerRef.current?.removeChild(renderer.domElement);
+        if (containerRef.current && renderer.domElement.parentElement === containerRef.current) {
+          containerRef.current.removeChild(renderer.domElement);
+        }
         renderer.dispose();
       };
     } catch (err) {
@@ -272,33 +295,61 @@ export default function ModelViewer({
       setIsLoading(false);
       return () => {};
     }
-  }, [modelPath, interactive, autoRotate, fallbackMessage]);
+    // include scale if you expect it to change at runtime
+  }, [modelPath, interactive, autoRotate, fallbackMessage, scale]);
 
   return (
-    <div className="w-full">
-      {isLoading && (
-        <div className="flex items-center justify-center" style={{ width, height }}>
-          <div className="text-zinc-500">Loading 3D model...</div>
+      <div className="w-full">
+        {error && (
+            <div className="flex items-center justify-center bg-amber-50 rounded-lg border border-amber-200 p-6" style={{ width, height }}>
+              <div className="text-center">
+                <div className="text-2xl mb-2">⚠️</div>
+                <div className="text-amber-900 font-medium mb-2">3D Viewer Not Available</div>
+                <div className="text-sm text-amber-800">{error}</div>
+              </div>
+            </div>
+        )}
+
+        {/* Container always present when no error so we can show canvas + progress overlay */}
+        <div
+            ref={containerRef}
+            style={{
+              width,
+              height,
+              cursor: interactive ? 'grab' : 'default',
+              display: error ? 'none' : 'block',
+              position: 'relative', // required for overlay
+            }}
+        >
+          {/* Progress overlay */}
+          {isLoading && (
+              <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 20,
+                    pointerEvents: 'none', // let pointer events pass to the canvas (optional)
+                    background: 'rgba(255,255,255,0.6)',
+                  }}
+              >
+                <div className="mb-3 text-zinc-700">Loading 3D model... {progress}%</div>
+                <div style={{ width: '60%', maxWidth: 400, height: 12, background: '#e6e6e6', borderRadius: 6, overflow: 'hidden' }}>
+                  <div
+                      style={{
+                        width: `${progress}%`,
+                        height: '100%',
+                        background: '#4f46e5',
+                        transition: 'width 200ms linear',
+                      }}
+                  />
+                </div>
+              </div>
+          )}
         </div>
-      )}
-      {error && (
-        <div className="flex items-center justify-center bg-amber-50 rounded-lg border border-amber-200 p-6" style={{ width, height }}>
-          <div className="text-center">
-            <div className="text-2xl mb-2">⚠️</div>
-            <div className="text-amber-900 font-medium mb-2">3D Viewer Not Available</div>
-            <div className="text-sm text-amber-800">{error}</div>
-          </div>
-        </div>
-      )}
-      <div
-        ref={containerRef}
-        style={{
-          width,
-          height,
-          cursor: interactive ? 'grab' : 'default',
-          display: isLoading || error ? 'none' : 'block',
-        }}
-      />
-    </div>
+      </div>
   );
 }

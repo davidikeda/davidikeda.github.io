@@ -13,9 +13,23 @@ export default function SummativeQ2() {
         >
 
             <section className="mb-12">
-                <p>This project is still under construction! Come back later!</p>
-                <br></br>
-                <p>If you want.. you can check out the cad to see the progress.</p>
+                <h2 className="text-2xl font-bold text-zinc-900 mb-4">Overview</h2>
+                <p className="text-zinc-600 mb-4">
+                    This project involved designing a container for a bakery business. My design focused on the <strong>Pfand</strong> system in germany. The Pfand system is a deposit system for reusable containers, where customers pay a deposit when they purchase a product in a container, and can return the container to get their deposit back. My design focused on creating a container that is durable and easy to clean, while also being appealing to customers.
+                </p>
+            </section>
+
+            <section className="mb-12">
+                <h2 className="text-2xl font-bold text-zinc-900 mb-4">Model</h2>
+                <p className="text-zinc-600 mb-4">*This may take a while to load, check the progress with chrome devtools</p>
+                <p className="text-zinc-600 mb-3">Also there is three versions of the model, but there is only one displayed. To check out the others you can take a look at the Onshape link down below.</p>
+                <ModelViewer
+                    modelPath="/models/summative-q3/Cupcake Insert.obj"
+                    interactive={true}
+                    autoRotate={true}
+                    width={"100%"}
+                    height="600px"
+                />
             </section>
 
             <section className="mb-12">
