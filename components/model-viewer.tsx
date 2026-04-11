@@ -74,7 +74,7 @@ export default function ModelViewer({
 
       const camera = new THREE.PerspectiveCamera(
           75,
-          containerRef.current.clientWidth / containerRef.current.clientHeight,
+          1,
           0.1,
           1000
       );
@@ -90,15 +90,35 @@ export default function ModelViewer({
         return;
       }
 
-      renderer.setSize(
-          containerRef.current.clientWidth,
-          containerRef.current.clientHeight
-      );
       renderer.setPixelRatio(window.devicePixelRatio);
-      // append canvas immediately so we can show progress overlay on top of it
       containerRef.current.appendChild(renderer.domElement);
       rendererRef.current = renderer;
+      const canvasE1 = renderer.domElement;
+      const containerE1 = containerRef.current;
+      containerE1.appendChild(canvasE1)
 
+      const container = containerRef.current;
+      const initRenderer = (width:number, height: number)=> {
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      }
+
+      const ro = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          const { width, height } = entry.contentRect;
+          if (width > 0 && height > 0  ) {
+            initRenderer(width, height);
+            ro.disconnect();
+          }
+        }
+      });
+      ro.observe(container);
+
+      if (container.clientWidth > 0 && container.clientHeight > 0) {
+        initRenderer(container.clientWidth, container.clientHeight);
+        ro.disconnect();
+      }
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
       scene.add(ambientLight);
 
@@ -277,6 +297,7 @@ export default function ModelViewer({
       animate();
 
       return () => {
+        ro.disconnect();
         window.removeEventListener('resize', handleResize);
         renderer.domElement.removeEventListener('mousedown', onMouseDown);
         document.removeEventListener('mousemove', onMouseMove);
@@ -284,8 +305,8 @@ export default function ModelViewer({
         renderer.domElement.removeEventListener('touchstart', onTouchStart);
         renderer.domElement.removeEventListener('touchmove', onTouchMove);
         renderer.domElement.removeEventListener('touchend', onTouchEnd);
-        if (containerRef.current && renderer.domElement.parentElement === containerRef.current) {
-          containerRef.current.removeChild(renderer.domElement);
+        if (canvasE1.parentElement === containerE1) {
+          containerE1.removeChild(canvasE1);
         }
         renderer.dispose();
       };
@@ -319,6 +340,7 @@ export default function ModelViewer({
               cursor: interactive ? 'grab' : 'default',
               display: error ? 'none' : 'block',
               position: 'relative', // required for overlay
+              overflow: 'hidden',
             }}
         >
           {/* Progress overlay */}
