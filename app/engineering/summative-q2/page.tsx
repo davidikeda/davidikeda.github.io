@@ -80,15 +80,15 @@ export default function SummativeQ2() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-zinc-900 mb-4">Design Questions</h2>
         <ul>
-            <li className="text-zinc-600 mb-2">
+            <li className="text-zinc-600 mb-2 pl-5">
                 Q: Does your design meet the design criteria? <br/>
                 A: Yes, my design meets the criteria of the project. Really the only constraints were that it had to be a 3-ring binder, fit A4 paper, and have 3 new features (Durability, Viewing windows, and the Leather Strap).
             </li>
-            <li className="text-zinc-600 mb-2">
+            <li className="text-zinc-600 mb-2 pl-5">
                 Q: Does your design apeal to high school students? <br/>
                 A: Yes, at least for me, the most annoying part about binders is that they get broken at the end of every school year, forcing you to buy more. Something else is that the leather strap provides security, as sometimes papers can slip out.
             </li>
-            <li className="text-zinc-600 mb-2">
+            <li className="text-zinc-600 mb-2 pl-5">
                 Q: Does you design incorporate functionality, structure, digital and interactive elements, and sustainability? <br/>
                 A: Yes, my design incorporates functionality with the viewing windows and leather strap. The structure is improved with the steel hinges on the spine. Sustainability is improved with the durability of the binder.
             </li>

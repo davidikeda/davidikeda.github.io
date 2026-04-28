@@ -33,7 +33,7 @@ export const projects: Project[] = [
         description: "Engineering 1 Sweet Improvement Project, otherwise known as the Engineering Summative for Quarter Three.",
         link: "/engineering/summative-q3",
         date: "03-27-2026",
-        status: "in-progress"
+        status: "completed"
     },
     {
         type: "engineering",

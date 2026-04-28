@@ -1,7 +1,7 @@
 import ProjectPage from '@/components/project-page';
 import ModelViewer from "@/components/model-viewer";
 
-export default function WingDesignInOnshape() {
+export default function Dada() {
     return (
         <ProjectPage
             title="Dada Art - Wrench"
