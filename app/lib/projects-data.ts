@@ -56,6 +56,9 @@ export const projects: Project[] = [
     // combined
     {
         type: "combined", title: "ti-0", description: "A Hardware-Software project that involves siphoning power and resources from a raspberry Pi zero to power a Ti-84 CE through a USB-Mini Cable.", link: "/combined/ti-0", date: "09-29-25", status: "planned"
+    },
+    {
+        type: "combined", title: "toadstool", description: "An offseason robotics mini bot created for the 2026 season.", link: "/combined/toadstool", date: "4/25/26", status: "in-progress"
     }
 ];
 
